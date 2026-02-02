@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markaze Taʿalimate Aʿla Hazrat</title>
+<style>
+  body { font-family: Arial, sans-serif; direction: rtl; background: #f7f7f7; margin:0; padding:0; }
+  header { background:#0b3d91; color:#fff; text-align:center; padding:20px 0; font-size:28px; }
+  .container { padding:20px; max-width:600px; margin:auto; background:#fff; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-top:30px; }
+  label { display:block; margin-bottom:10px; font-size:18px; }
+  input[type="number"] { width:100%; padding:10px; font-size:16px; margin-bottom:20px; border-radius:5px; border:1px solid #ccc; }
+  button { background:#0b3d91; color:#fff; padding:12px 20px; border:none; font-size:18px; border-radius:5px; cursor:pointer; width:100%; }
+  button:hover { background:#0650b8; }
+</style>
+</head>
+<body>
+<header>مرکزِ تعلیماتِ اعلیٰ حضرت</header>
+<div class="container">
+<label for="roll">طلباء کا رول نمبر درج کریں:</label>
+<input type="number" id="roll" placeholder="مثال: 101">
+<button onclick="searchResult()">نتائج دیکھیں</button>
+</div>
+
+<script>
+const students = [
+  {roll:101, name:"زینت قادریہ رضویہ برکاتیہ", father:"عبّاس بن حاجی اسماعیل مندھرا", class:"رابعہ", total:600, obtained:499, grade:"A", status:"Pass", percentage:83.16, date:"27-01-2026", hijri:"27 رجب 1447"}
+];
+
+function searchResult(){
+  const rollInput = document.getElementById('roll').value;
+  const student = students.find(s => s.roll == rollInput);
+  if(student){
+    alert(`نام: ${student.name}\nوالد کا نام: ${student.father}\nکلاس: ${student.class}\nکل نمبر: ${student.total}\nحاصل کردہ نمبر: ${student.obtained}\nفیصد: ${student.percentage}%\nگریڈ: ${student.grade}\nحالت: ${student.status}\nتاریخ: ${student.date} (${student.hijri})`);
+  } else { alert("طلباء کا رول نمبر نہیں ملا۔"); }
+}
+</script>
+</body>
+</html>
